@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Reader",
+  "version": "0.1.0",
+  "action": { "default_title": "Open Reader View" },
+  "background": { "service_worker": "background.js" },
+  "permissions": [
+    "scripting",
+    "downloads",
+    "offscreen",
+    "clipboardWrite",
+    "activeTab"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content/overlay.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
