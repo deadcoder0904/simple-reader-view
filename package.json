@@ -1,14 +1,14 @@
 {
-  "name": "simple-reader-view",
-  "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "scripts": {
-    "fmt": "deno fmt",
-    "fmt:check": "deno fmt --check"
-  }
+	"name": "simple-reader-view",
+	"private": true,
+	"devDependencies": {
+		"@types/bun": "^1.2.22"
+	},
+	"peerDependencies": {
+		"typescript": "^5.9.2"
+	},
+	"scripts": {
+		"fmt": "deno fmt",
+		"fmt:check": "deno fmt --check"
+	}
 }
