@@ -95,6 +95,8 @@
 	// Parse article (Readability-like API)
 	try {
 		const clone = document.cloneNode(true,)
+		// Remove scripts and styles from clone to avoid issues
+		clone.querySelectorAll('script, style, link[rel="stylesheet"]').forEach(el => el.remove())
 		// Readability is provided by vendor/readability.js
 		const article = new Readability(clone,).parse()
 		if (!article || !article.content) {
