@@ -20,12 +20,12 @@ chrome.action.onClicked.addListener(async (tab,) => {
 			console.warn('Simple Reader: cannot run on restricted URL:', url,)
 			return
 		}
-		// Inject vendor libs then content script
+		// Inject third-party libs then content script
 		await chrome.scripting.executeScript({
 			target: { tabId: tab.id, },
 			files: [
-				'vendor/readability.js',
-				'vendor/turndown.js',
+				'node_modules/@mozilla/readability/Readability.js',
+				'node_modules/turndown/dist/turndown.js',
 				'content/overlay.js',
 			],
 		},)

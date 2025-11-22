@@ -32,7 +32,7 @@ No build step. Load as an unpacked extension:
 
 ## How It Works
 
-- `background.js` injects vendor libs and the content script on click.
+- `background.js` injects third-party libs (Readability, Turndown) and the content script on click.
 - `content/overlay.js` renders a Shadow‑DOM overlay and generates Markdown via Turndown.
 - `offscreen.js` handles clipboard and downloads in an offscreen document.
 
@@ -43,7 +43,7 @@ No build step. Load as an unpacked extension:
 - `content/overlay.js` — overlay UI and logic
 - `content/overlay.css` — overlay styles (web‑accessible)
 - `offscreen.html` / `offscreen.js` — clipboard/download helpers
-- `vendor/` — `readability.js`, `turndown.js`
+- Third‑party libs: `@mozilla/readability` and `turndown` (in `node_modules/`)
 
 ## What’s New (Readability Pass)
 

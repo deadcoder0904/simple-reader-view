@@ -7,7 +7,7 @@
 - `content/overlay.js` — overlay UI, parsing, Markdown generation.
 - `content/overlay.css` — scoped styles for the overlay (Shadow DOM link).
 - `offscreen.html` / `offscreen.js` — offscreen doc for clipboard and downloads.
-- `vendor/` — third‑party libs: `readability.js`, `turndown.js`.
+- Third‑party libs are pulled from npm (`@mozilla/readability`, `turndown`) via `node_modules/`.
 
 ## Build, Test, and Development Commands
 
@@ -22,7 +22,7 @@
 - Filenames: descriptive, kebab/camel as in existing files (`background.js`, `overlay.js`).
 - CSS/DOM: prefix overlay selectors with `reader-` (e.g., `.reader-toolbar`, `#reader-root`).
 - Keys/flags: use clear names (`__reader_theme`, `__READER_OPEN__`).
-- Keep vendor files unmodified; add site tweaks in `overlay.js` only if generic.
+- Avoid modifying third-party library files; add site tweaks in `overlay.js` only if generic.
 - Update all references when renaming (manifest, injection lists, resource paths).
 
 ## Testing Guidelines
