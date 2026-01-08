@@ -1,20 +1,20 @@
 // Deno config for formatting and simple tasks
 {
-	"fmt": {
-		// Formatting preferences
-		"useTabs": true,
-		"indentWidth": 1,
-		"lineWidth": 80,
-		"semiColons": false,
-		"singleQuote": true,
-		"trailingCommas": "always",
-		// How to wrap Markdown/HTML prose: "preserve" | "always" | "never"
-		"proseWrap": "preserve",
-		// Skip common vendored folders
-		"exclude": [".git", "node_modules", "dist", "build", "vendor"]
-	},
-	"tasks": {
-		"fmt": "deno fmt",
-		"fmt:check": "deno fmt --check"
-	}
+  "fmt": {
+    // Formatting preferences
+    "useTabs": true,
+    "indentWidth": 1,
+    "lineWidth": 80,
+    "semiColons": false,
+    "singleQuote": true,
+    "trailingCommas": "always",
+    // How to wrap Markdown/HTML prose: "preserve" | "always" | "never"
+    "proseWrap": "preserve",
+    // Skip common vendored folders
+    "exclude": [".git", "node_modules", "dist", "build", "vendor"],
+  },
+  "tasks": {
+    "fmt": "deno fmt",
+    "fmt:check": "deno fmt --check",
+  },
 }
