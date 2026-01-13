@@ -1,9 +1,9 @@
 // content/overlay.js
-const svgMoon = () =>
-  '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/></svg>'
-const svgSun = () =>
-  '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1.5a1 1 0 1 1 2 0V21a1 1 0 0 1-1 1Zm0-17.5a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1ZM3 13a1 1 0 1 1 0-2h1.5a1 1 0 1 1 0 2H3Zm16.5 0a1 1 0 1 1 0-2H21a1 1 0 1 1 0 2h-1.5ZM5.05 19.95a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 1 1 1.41 1.41L6.46 19.95a1 1 0 0 1-1.41 0Zm11.02-11.02a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 1 1 1.41 1.41l-1.06 1.06a1 1 0 0 1-1.41 0Zm0 11.02 1.06-1.06a1 1 0 1 1 1.41 1.41l-1.06 1.06a1 1 0 1 1-1.41-1.41ZM5.05 4.05 6.11 3a1 1 0 1 1 1.41 1.41L6.46 5.46A1 1 0 1 1 5.05 4.05Z"/></svg>'
 ;(() => {
+  const SVG_MOON =
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/></svg>'
+  const SVG_SUN =
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1.5a1 1 0 1 1 2 0V21a1 1 0 0 1-1 1Zm0-17.5a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1ZM3 13a1 1 0 1 1 0-2h1.5a1 1 0 1 1 0 2H3Zm16.5 0a1 1 0 1 1 0-2H21a1 1 0 1 1 0 2h-1.5ZM5.05 19.95a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 1 1 1.41 1.41L6.46 19.95a1 1 0 0 1-1.41 0Zm11.02-11.02a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 1 1 1.41 1.41l-1.06 1.06a1 1 0 0 1-1.41 0Zm0 11.02 1.06-1.06a1 1 0 1 1 1.41 1.41l-1.06 1.06a1 1 0 1 1-1.41-1.41ZM5.05 4.05 6.11 3a1 1 0 1 1 1.41 1.41L6.46 5.46A1 1 0 1 1 5.05 4.05Z"/></svg>'
   // If a previous toggle function exists, invoke it to close and exit (back-compat).
   try {
     if (typeof window.__READER_OPEN__ === 'function') {
@@ -184,7 +184,7 @@ const svgSun = () =>
     const themeBtn = bar.querySelector('#reader-theme')
     const setThemeButtonIcon = () => {
       const cur = host.getAttribute('data-theme') || 'dark'
-      themeBtn.innerHTML = cur === 'dark' ? svgSun() : svgMoon()
+      themeBtn.innerHTML = cur === 'dark' ? SVG_SUN : SVG_MOON
       themeBtn.title = cur === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
       themeBtn.setAttribute('aria-label', themeBtn.title)
     }
@@ -347,8 +347,14 @@ const svgSun = () =>
   function extractMeta() {
     const meta = {
       title: getMetaContent('meta[property="og:title"]') || document.title || '',
-      subtitle: get('meta[name="description"]') || get('meta[property="og:description"]') || '',
-      author: get('meta[name="author"]') || get('meta[property="article:author"]') || '',
+      subtitle:
+        getMetaContent('meta[name="description"]') ||
+        getMetaContent('meta[property="og:description"]') ||
+        '',
+      author:
+        getMetaContent('meta[name="author"]') ||
+        getMetaContent('meta[property="article:author"]') ||
+        '',
       section: getMetaContent('meta[property="article:section"]') || '',
       date: getMetaContent('meta[property="article:published_time"]') || '',
     }
