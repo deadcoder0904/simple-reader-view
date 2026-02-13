@@ -3,10 +3,12 @@
   "private": true,
   "scripts": {
     "lint": "oxlint --type-aware .",
-    "format": "oxfmt .",
-    "format:check": "oxfmt --check .",
+    "format": "oxfmt . --ignore-path .oxfmtignore",
+    "format:check": "oxfmt --check . --ignore-path .oxfmtignore",
+    "typecheck": "tsgo --noEmit",
     "icons": "bun run scripts/generate-icons.ts",
-    "icons:check": "bun run scripts/generate-icons.ts --check"
+    "icons:check": "bun run scripts/generate-icons.ts --check",
+    "lint:fix": "oxlint --type-aware --fix ."
   },
   "dependencies": {
     "@mozilla/readability": "^0.6.0",
@@ -14,9 +16,10 @@
   },
   "devDependencies": {
     "@types/bun": "^1.3.5",
-    "oxfmt": "^0.24.0",
-    "oxlint": "^1.39.0",
-    "oxlint-tsgolint": "^0.11.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260212.1",
+    "oxfmt": "^0.32.0",
+    "oxlint": "^1.47.0",
+    "oxlint-tsgolint": "^0.12.1",
     "sharp": "^0.34.5"
   },
   "peerDependencies": {
